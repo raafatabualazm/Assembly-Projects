@@ -41,10 +41,7 @@ mov v1, eax
 lea edx, newline
 call WriteString
 
-mov eax, v0
-call writehex
-lea edx, newline
-call WriteString
+
 
 push eax
 push ebx
@@ -69,10 +66,7 @@ call WriteString
 lea edx, newline
 call WriteString
 
-mov eax, v0
-call writehex
-lea edx, newline
-call WriteString
+
 
 push eax
 push ebx
@@ -96,9 +90,6 @@ mov DWORD PTR[edx + 4], ebx
 call WriteString
 lea edx, newline
 call WriteString
-
-mov eax, v0
-call writehex
 lea edx, newline
 call WriteString
 
@@ -156,7 +147,7 @@ mov v0r5, eax
 ; ((v0 << 4) + k2) ^ (v0 + sum) ^ ((v0 >> 5) + k3)
 mov eax, v0l4
 xor eax, v0ps
-xor eax, v1r5
+xor eax, v0r5
 ; v1 += ((v0 << 4) + k2) ^ (v0 + sum) ^ ((v0 >> 5) + k3)
 ADD v1, eax
 
@@ -192,7 +183,7 @@ mov v0r5, eax
 ; ((v0 << 4) + k2) ^ (v0 + sum) ^ ((v0 >> 5) + k3)
 mov eax, v0l4
 xor eax, v0ps
-xor eax, v1r5
+xor eax, v0r5
 ; v1 -= ((v0 << 4) + k2) ^ (v0 + sum) ^ ((v0 >> 5) + k3)
 SUB v1, eax
 
